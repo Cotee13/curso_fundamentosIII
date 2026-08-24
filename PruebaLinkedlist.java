@@ -39,6 +39,13 @@ class lnkdlst {
         }
         current.next = newStudent;
     }
+    public void print() {
+        Student current = this.head;
+        while(current !=null) {
+            System.out.println(current.name + " - " + current.score);
+            current = current.next;
+        }
+    }
 }
 
 public class PruebaLinkedlist {
