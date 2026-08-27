@@ -22,6 +22,7 @@ class Student {
 
 class lnkdlst {
     Student head;
+    int index = 0;
     public lnkdlst() //Constructor de la clase 
     {
         this.head = null;
@@ -31,6 +32,7 @@ class lnkdlst {
         Student newStudent = new Student(name,score);
         if(head == null) {
             head = newStudent;
+            this.index++;
             return;
         }
         Student current = head;
@@ -38,6 +40,7 @@ class lnkdlst {
             current = current.next;
         }
         current.next = newStudent;
+        this.index++;
     }
     public void print() {
         Student current = this.head;
@@ -55,6 +58,26 @@ class lnkdlst {
             current = current.next; //traverse the list
         }
         return null; //not found
+    }
+    public void remove (int n) {
+        if(head == null) {
+            return; //empty list
+        }
+        if(n < 0) {
+            return;
+        }
+        if(n>= this.index){ return; } //index out of bounds
+        int index = 0;
+        Student current = head;
+        while(current != null && index < (n-1)) {
+            current = current.next;
+            index++;
+        }
+        if(current == null || current.next == null) {
+            return; //position out of range
+        }
+        current.next = current.next.next;
+        this.index--;
     }
 }
 
