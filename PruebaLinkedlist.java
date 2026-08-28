@@ -22,26 +22,23 @@ class Student {
 
 class lnkdlst {
     Student head;
+    Student tail;
     int index = 0;
     public lnkdlst() //Constructor de la clase 
     {
         this.head = null;
+        this.tail = null;
     }
     
     public void add(String name, int score) {
-        Student newStudent = new Student(name,score);
-        if(head == null) {
-            head = newStudent;
+            tail = newStudent;
             this.index++;
             return;
-        }
-        Student current = head;
-        while(current.next != null) {
-            current = current.next;
-        }
-        current.next = newStudent;
-        this.index++;
     }
+    tail.next = newStudent;
+    this.index++;
+    return;
+    
     public void print() {
         Student current = this.head;
         while(current !=null) {
